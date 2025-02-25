@@ -1,17 +1,11 @@
 require 'spec_helper'
 
 describe 'Basic arithmetic operations test' do
-  FILE_PATH = '/home/esteban/repositories/hundred_ruby_exercises/beginner/basic_arithmetic_operations/basic_arithmetic_operations.rb'
+  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/basic_arithmetic_operations/basic_arithmetic_operations.rb' }
 
   before do
-    @output = IO.popen('ruby ' + FILE_PATH, "r+") do |io|
-      io.puts "5"
-      io.puts "2"
-      io.close_write
-      io.read.strip
-        .split("The results are:").last
-        .split('Operations with strings').first.split("\n")
-    end
+    @output = execute_script(file_path, ['5', '2'], "The results are:").last
+      .split('Operations with strings').first.split("\n")
   end
 
   it 'is doing the addition correctly' do

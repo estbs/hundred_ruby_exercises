@@ -1,16 +1,13 @@
 require 'spec_helper'
 
 describe 'Prime number test' do
-  describe "Match prime numbers" do
-    it "returns It is a prime number" do
-      FILE_PATH = '/home/esteban/repositories/hundred_ruby_exercises/beginner/prime_number/prime_number.rb'
-      output = IO.popen('ruby ' + FILE_PATH, "r+") do |io|
-        io.puts "5"
-        io.close_write
-        io.read.strip.split("\n").last
-      end
+  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/prime_number/prime_number.rb' }
 
-      expect(output).to eq('It is prime number')
-    end
+  before do
+    @output = execute_script(file_path, ['5'], ':')
+  end
+
+  it "returns It is a prime number" do
+    expect(@output.last.strip).to eq('It is prime number')
   end
 end

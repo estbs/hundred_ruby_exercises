@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 describe 'Hello world Test' do
-  it "returns Hello World" do
-    FILE_PATH = '/home/esteban/repositories/hundred_ruby_exercises/beginner/hello_world/hello_world.rb'
-    output = IO.popen('ruby ' + FILE_PATH, "r+") do |io|
-      io.read.strip.split("\n").last
-    end
+  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/hello_world/hello_world.rb' }
 
-    expect(output).to eq('Hello World!')
+  before do
+    @output = execute_script(file_path, [])
+  end
+
+  it "returns Hello World" do
+    expect(@output.first).to eq('Hello World!')
   end
 end
