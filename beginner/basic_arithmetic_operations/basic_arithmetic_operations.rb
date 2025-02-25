@@ -1,10 +1,15 @@
 puts 'Operations with numbers'
-puts "10 + 9: #{10 + 9}"
-puts "10 - 7: #{10 - 7}"
-puts "10 * 3: #{10 * 3}"
-puts "10 / 3: #{10 / 3}"
-puts "10 % 3: #{10 % 3}"
-puts "2 ** 5: #{2 ** 5}"
+puts 'Enter the first number'
+number_1 = gets.to_i
+puts 'Enter the second number'
+number_2 = gets.to_i
+puts 'The results are: '
+puts "#{number_1} + #{number_2}: #{number_1 + number_2}"
+puts "#{number_1} - #{number_2}: #{number_1 - number_2}"
+puts "#{number_1} * #{number_2}: #{number_1 * number_2}"
+puts "#{number_1} / #{number_2}: #{number_1 / number_2}"
+puts "#{number_1} % #{number_2}: #{number_1 % number_2}"
+puts "#{number_1} ** #{number_2}: #{number_1 ** number_2}"
 
 puts 'Operations with strings'
 puts "a + b: #{'a' + 'b'}"
