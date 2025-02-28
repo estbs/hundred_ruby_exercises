@@ -13,10 +13,13 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+$LOAD_PATH.unshift File.expand_path('../../', __FILE__)
 require_relative 'io_helper'
 
 RSpec.configure do |config|
   config.include IOHelper
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

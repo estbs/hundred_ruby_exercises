@@ -1,13 +1,14 @@
 require 'spec_helper'
+require 'beginner/even_or_odd/even_or_odd'
 
-describe 'Even or Odd test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/even_or_odd/even_or_odd.rb' }
+describe Beginner::EvenOrOdd do
+  subject { described_class.new }
 
-  before do
-    @output = execute_script(file_path, ["5"], ":")
+  it 'returns Even for even numbers' do
+    expect(subject.even_or_odd(4)).to eq("Even")
   end
 
-  it 'says the number is Odd' do
-    expect(@output.last.strip).to eq('Odd')
+  it 'returns Odd for odd numbers' do
+    expect(subject.even_or_odd(7)).to eq("Odd")
   end
 end

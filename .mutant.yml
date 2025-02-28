@@ -1,0 +1,6 @@
+---
+integration:
+  name: rspec
+requires:
+  - ./beginner/even_or_odd/even_or_odd.rb
+usage: opensource
