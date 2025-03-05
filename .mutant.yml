@@ -2,5 +2,8 @@
 integration:
   name: rspec
 requires:
-  - ./beginner/even_or_odd/even_or_odd.rb
+  - ./beginner/even_or_odd/even_or_odd
+  - ./beginner/basic_arithmetic_operations/basic_arithmetic_operations
+  - ./beginner/celsius_to_fahrenheit/celsius_to_fahrenheit
+  - ./beginner/hello_world/hello_world
 usage: opensource

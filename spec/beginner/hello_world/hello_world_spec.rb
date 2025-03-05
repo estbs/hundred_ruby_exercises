@@ -1,13 +1,10 @@
 require 'spec_helper'
+require 'beginner/hello_world/hello_world'
 
-describe 'Hello world Test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/hello_world/hello_world.rb' }
-
-  before do
-    @output = execute_script(file_path, [])
-  end
+describe Beginner::HelloWorld do
+  subject { described_class.new }
 
   it "returns Hello World" do
-    expect(@output.first).to eq('Hello World!')
+    expect(subject.greet).to eq('Hello World!')
   end
 end

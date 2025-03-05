@@ -1,34 +1,30 @@
 require 'spec_helper'
+require 'beginner/basic_arithmetic_operations/basic_arithmetic_operations'
 
-describe 'Basic arithmetic operations test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/basic_arithmetic_operations/basic_arithmetic_operations.rb' }
+describe Beginner::BasicArithmeticOperations do
+  subject { described_class.new }
 
-  before do
-    @output = execute_script(file_path, ['5', '2'], "The results are:").last
-      .split('Operations with strings').first.split("\n")
+  it 'sum two numbers' do
+    expect(subject.plus(3, 4)).to eq(7)
   end
 
-  it 'is doing the addition correctly' do
-    expect(@output[1].split(':').last.to_i).to eq(7)
+  it 'rest two numbers' do
+    expect(subject.minus(5, 2)).to eq(3)
   end
 
-  it 'is doing the substraction correctly' do
-    expect(@output[2].split(':').last.to_i).to eq(3)
+  it 'multiplies two numbers' do
+    expect(subject.multiplication(9, 3)).to eq(27)
   end
 
-  it 'is doing the multiplication correctly' do
-    expect(@output[3].split(':').last.to_i).to eq(10)
+  it 'divides two numbers' do
+    expect(subject.division(9, 4)).to eq(2)
   end
 
-  it 'is doing the division correctly' do
-    expect(@output[4].split(':').last.to_i).to eq(2)
+  it 'gets the module of two numbers' do
+    expect(subject.module(9, 4)).to eq(1)
   end
 
-  it 'is calculating the module correctly' do
-    expect(@output[5].split(':').last.to_i).to eq(1)
-  end
-
-  it 'is doing the nth power correctly' do
-    expect(@output[6].split(':').last.to_i).to eq(25)
+  it 'calculates the potency of a number' do
+    expect(subject.potency(5, 2)).to eq(25)
   end
 end

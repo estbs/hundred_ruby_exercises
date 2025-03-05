@@ -1,13 +1,10 @@
 require 'spec_helper'
+require 'beginner/celsius_to_fahrenheit/celsius_to_fahrenheit'
 
-describe 'Celsius to fahrenheit test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/celsius_to_fahrenheit/celsius_to_fahrenheit.rb' }
-
-  before do
-    @output = execute_script(file_path, ["32"], ":")
-  end
+describe Beginner::CelsiusToFahrenheit do
+  subject { described_class.new }
 
   it 'calculates the fahrenheit grades' do
-    expect(@output.last.to_f).to eq(89.6)
+    expect(subject.convert(32)).to eq(89.6)
   end
 end
