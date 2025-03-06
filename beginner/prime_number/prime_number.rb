@@ -1,13 +1,18 @@
-puts 'Enter a number:'
-number = gets.to_i
+module Beginner
+  class PrimeNumber
+    def is_prime_number?(number)
+      return false if number <= 1
+      return true if number <= 3
 
-is_prime = true
-if number == 0 || number == 1
-  is_prime = true
-else
-  [*2...number-1].each do |i|
-    is_prime = false if number % i == 0
+      return false if number % 2 == 0 || number % 3 == 0
+
+      i = 5
+      while i * i <= number
+        return false if number % i == 0 || number % (i + 2) == 0
+        i += 6
+      end
+
+      true
+    end
   end
 end
-
-puts "It is #{is_prime ? 'prime' : 'not prime'} number"

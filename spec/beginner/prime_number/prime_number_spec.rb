@@ -1,13 +1,49 @@
 require 'spec_helper'
+require 'beginner/prime_number/prime_number'
 
-describe 'Prime number test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/prime_number/prime_number.rb' }
+describe Beginner::PrimeNumber do
+  subject { described_class.new }
 
-  before do
-    @output = execute_script(file_path, ['5'], ':')
+  it 'returns false for numbers less than or equal to 1' do
+    expect(subject.is_prime_number?(-3)).to eq(false)
+    expect(subject.is_prime_number?(0)).to eq(false)
+    expect(subject.is_prime_number?(1)).to eq(false)
   end
 
-  it "returns It is a prime number" do
-    expect(@output.last.strip).to eq('It is prime number')
+  it 'returns true for 2 and 3' do
+    expect(subject.is_prime_number?(2)).to eq(true)
+    expect(subject.is_prime_number?(3)).to eq(true)
+  end
+
+  it 'returns false for even numbers greater than 2' do
+    expect(subject.is_prime_number?(4)).to be false
+    expect(subject.is_prime_number?(10)).to be false
+  end
+
+  it 'returns false for numbers divisible by 3 greater than 3' do
+    expect(subject.is_prime_number?(9)).to be false
+    expect(subject.is_prime_number?(15)).to be false
+  end
+
+  it 'returns true for prime numbers' do
+    expect(subject.is_prime_number?(5)).to be true
+    expect(subject.is_prime_number?(7)).to be true
+    expect(subject.is_prime_number?(17)).to be true
+    expect(subject.is_prime_number?(101)).to be true
+  end
+
+  it 'returns false for non-prime numbers' do
+    expect(subject.is_prime_number?(6)).to be false
+    expect(subject.is_prime_number?(8)).to be false
+    expect(subject.is_prime_number?(9)).to be false
+    expect(subject.is_prime_number?(100)).to be false
+  end
+
+  it 'handles large prime numbers' do
+      expect(subject.is_prime_number?(104729)).to be true
+  end
+
+  it 'handles large non-prime numbers' do
+      expect(subject.is_prime_number?(104728)).to be false
   end
 end

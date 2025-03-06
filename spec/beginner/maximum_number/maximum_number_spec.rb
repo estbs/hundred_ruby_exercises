@@ -1,13 +1,14 @@
 require 'spec_helper'
+require 'beginner/maximum_number/maximum_number'
 
-describe 'Maximum number test' do
-  let(:file_path) { '/home/esteban/repositories/hundred_ruby_exercises/beginner/maximum_number/maximum_number.rb' }
+describe Beginner::MaximumNumber do
+  subject { described_class.new }
 
-  before do
-    @output = execute_script(file_path, ['7', '4'], ":")
+  it 'returns the maximum number' do
+    expect(subject.compare(7, 4)).to eq(7)
   end
 
   it 'returns the maximum number' do
-    expect(@output.last.to_i).to eq(7)
+    expect(subject.compare(5, 9)).to eq(9)
   end
 end

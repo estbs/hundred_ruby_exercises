@@ -6,4 +6,6 @@ requires:
   - ./beginner/basic_arithmetic_operations/basic_arithmetic_operations
   - ./beginner/celsius_to_fahrenheit/celsius_to_fahrenheit
   - ./beginner/hello_world/hello_world
+  - ./beginner/maximum_number/maximum_number
+  - ./beginner/prime_number/prime_number
 usage: opensource
