@@ -8,4 +8,5 @@ requires:
   - ./beginner/hello_world/hello_world
   - ./beginner/maximum_number/maximum_number
   - ./beginner/prime_number/prime_number
+  - ./beginner/swap_two_variables/swap_two_variables
 usage: opensource
